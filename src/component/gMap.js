@@ -59,14 +59,12 @@ class Map extends Component {
             }}
           />
           {this.props.latLangValue &&
-            this.props.latLangValue.coordinate &&
-            this.props.latLangValue.coordinate.length &&
-            this.props.latLangValue.coordinate.map((pos, i) => (
+            this.props.latLangValue.map((pos, i) => (
               <Marker
-                key={pos.latitude + pos.longitude}
+                key={pos.lat + pos.lng}
                 google={this.props.google}
                 icon={this.getLink("C", pos.count, 90, "FF7F50")}
-                position={{ lat: +pos.latitude, lng: +pos.longitude }}
+                position={{ lat: +pos.lat, lng: +pos.lng }}
               />
             ))}
         </GoogleMap>
