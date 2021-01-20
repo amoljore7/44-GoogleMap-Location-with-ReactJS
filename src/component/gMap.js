@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { AppConfig } from '../app-config';
 import {
   withGoogleMap,
   GoogleMap,
@@ -8,7 +9,7 @@ import {
 } from "react-google-maps";
 import Geocode from "react-geocode";
 
-Geocode.setApiKey("AIzaSyATu9bSEClphiWJSHSqWRyfiv1Ye43CFHA");
+Geocode.setApiKey(AppConfig.url);
 Geocode.enableDebug();
 
 class Map extends Component {
