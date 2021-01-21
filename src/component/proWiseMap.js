@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Typography, Divider, withStyles, Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
-import {
-  TextField,
-  MenuItem,
-  Button,
-} from "@material-ui/core";
+import { TextField, MenuItem, Button } from "@material-ui/core";
 
 import styles from "./proWiseMap.style";
 import Map from "./gMap";
@@ -13,22 +9,43 @@ import Map from "./gMap";
 const PROwiseMap = ({ classes, google }) => {
   const [statusType, setStatusType] = useState([]);
   const [latlang, setLatlang] = useState([]);
-
-  const points1 = [
-    { lat: 13.0339, lng: 77.55 },
-    { lat: 13.0334, lng: 77.564 },
-    { lat: 13.0271, lng: 77.5559 },
-    { lat: 13.0318, lng: 77.5773 },
-    { lat: 13.0348, lng: 77.5761 },
-    { lat: 13.0385, lng: 77.565 },
-  ];
+  const latlangData = {
+    coordinate: [
+      {
+        lat: 13.0339,
+        lng: 77.55,
+      },
+      {
+        lat: 13.0334,
+        lng: 77.564,
+      },
+      {
+        lat: 13.0271,
+        lng: 77.5559,
+      },
+    ],
+    application: [
+      {
+        lat: 13.0318,
+        lng: 77.5773,
+      },
+      {
+        lat: 13.0348,
+        lng: 77.5761,
+      },
+      {
+        lat: 13.0385,
+        lng: 77.565,
+      },
+    ],
+  };
   const GetData = () => {
-    setLatlang(points1);
+    setLatlang(latlangData);
   };
   const city = [
     {
       value: "USD",
-      label: "Banglore",
+      label: "Bell Road Banglore",
     },
   ];
   const place = [

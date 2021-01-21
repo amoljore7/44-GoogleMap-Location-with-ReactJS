@@ -59,11 +59,24 @@ class Map extends Component {
             }}
           />
           {this.props.latLangValue &&
-            this.props.latLangValue.map((pos, i) => (
+            this.props.latLangValue.coordinate &&
+            this.props.latLangValue.coordinate.length &&
+            this.props.latLangValue.coordinate.map((pos, i) => (
               <Marker
                 key={pos.lat + pos.lng}
                 google={this.props.google}
                 icon={this.getLink("C", pos.count, 90, "FF7F50")}
+                position={{ lat: +pos.lat, lng: +pos.lng }}
+              />
+            ))}
+           {this.props.latLangValue &&
+           this.props.latLangValue.application &&
+           this.props.latLangValue.application.length &&
+           this.props.latLangValue.application.map((pos, i) => (
+              <Marker
+                key={pos.lat + pos.lng}
+                google={this.props.google}
+                 icon={this.getLink("AP", pos.count, 45, "FFD700")}
                 position={{ lat: +pos.lat, lng: +pos.lng }}
               />
             ))}
@@ -87,7 +100,7 @@ class Map extends Component {
         </div>
       );
     } else {
-      map = <div style={{ height: this.props.height }} />;
+      map = <div style={{ height: this.props.height }}><h1>props coming wrong!</h1></div>;
     }
     return map;
   }
